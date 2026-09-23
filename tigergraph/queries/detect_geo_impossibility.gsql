@@ -1,0 +1,35 @@
+USE GRAPH FraudGraph
+
+CREATE OR REPLACE QUERY detect_geo_impossibility(VERTEX<Transaction> tx) FOR GRAPH FraudGraph {
+    SumAccum<DOUBLE> @@dist1;
+    SumAccum<DOUBLE> @@dist2;
+    SetAccum<STRING> @@ip_str;
+    OrAccum @@is_proxy;
+    SetAccum<STRING> @@country;
+    SetAccum<STRING> @@city;
+    SumAccum<DOUBLE> @@amount;
+
+    Start = { tx };
+
+    TargetTxn = SELECT t FROM Start:t
+                ACCUM 
+                    @@amount += t.amount,
+                    @@dist1 += t.dist1,
+                    @@dist2 += t.dist2;
+
+    IPs = SELECT ip FROM TargetTxn:t -(ASSOCIATED_IP:e)-> IPAddress:ip
+          ACCUM 
+              @@ip_str += ip.ip_str,
+              @@is_proxy += ip.is_proxy,
+              @@country += ip.geo_country,
+              @@city += ip.geo_city;
+
+    PRINT tx,
+          @@amount AS amount,
+          @@dist1 AS distance_miles,
+          @@ip_str AS ip_address,
+          @@is_proxy AS is_proxy_ip,
+          @@country AS geo_country,
+          @@city AS geo_city,
+          (@@dist1 >= 500.0 OR @@is_proxy == true) AS geo_impossibility_detected;
+}

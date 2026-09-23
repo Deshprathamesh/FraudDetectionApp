@@ -1,0 +1,26 @@
+USE GRAPH FraudGraph
+
+CREATE OR REPLACE QUERY detect_card_testing(VERTEX<CreditCard> card) FOR GRAPH FraudGraph {
+    SumAccum<INT> @@micro_tx_count;
+    SumAccum<INT> @@total_tx_count;
+    MaxAccum<DOUBLE> @@max_amount;
+    ListAccum<DOUBLE> @@recent_amounts;
+
+    Start = { card };
+
+    Txns = SELECT t FROM Start:c -(REVERSE_USED_CARD:e)-> Transaction:t
+           ACCUM 
+               @@total_tx_count += 1,
+               @@max_amount += t.amount,
+               @@recent_amounts += t.amount,
+               IF t.amount < 5.0 THEN
+                   @@micro_tx_count += 1
+               END;
+
+    PRINT card,
+          @@total_tx_count AS total_transactions,
+          @@micro_tx_count AS micro_transactions,
+          @@max_amount AS max_amount,
+          @@recent_amounts AS transaction_amounts,
+          (@@micro_tx_count >= 2 AND @@max_amount >= 500.0) AS card_testing_detected;
+}

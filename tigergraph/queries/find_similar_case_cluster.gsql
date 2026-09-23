@@ -1,0 +1,28 @@
+USE GRAPH FraudGraph
+
+CREATE OR REPLACE QUERY find_similar_case_cluster(VERTEX<FraudCase> target_case) FOR GRAPH FraudGraph {
+    SetAccum<STRING> @@matched_patterns;
+    ListAccum<VERTEX<FraudCase>> @@similar_cases;
+    SumAccum<DOUBLE> @@target_risk;
+    SumAccum<STRING> @@target_status;
+
+    Start = { target_case };
+
+    TargetCase = SELECT c FROM Start:c
+                 ACCUM 
+                     @@target_risk += c.risk_score,
+                     @@target_status += c.status;
+
+    Patterns = SELECT p FROM TargetCase:c -(DETECTED_PATTERN:e)-> FraudPattern:p
+               ACCUM @@matched_patterns += p.name;
+
+    Similar = SELECT sc FROM TargetCase:c -(SIMILAR_TO_CASE:e)-> FraudCase:sc
+              ACCUM @@similar_cases += sc;
+
+    PRINT target_case,
+          @@target_risk AS target_risk_score,
+          @@target_status AS target_status,
+          @@matched_patterns AS detected_patterns,
+          @@similar_cases.size() AS cluster_size,
+          @@similar_cases AS similar_cases;
+}

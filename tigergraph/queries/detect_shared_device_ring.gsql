@@ -1,0 +1,26 @@
+USE GRAPH FraudGraph
+
+CREATE OR REPLACE QUERY detect_shared_device_ring(VERTEX<Device> dev) FOR GRAPH FraudGraph {
+    SetAccum<VERTEX<Customer>> @@customers;
+    SetAccum<VERTEX<Account>> @@accounts;
+    SumAccum<INT> @@tx_count;
+
+    Start = { dev };
+
+    Txns = SELECT t FROM Start:d -(REVERSE_USED_DEVICE:e)-> Transaction:t
+           ACCUM @@tx_count += 1;
+
+    Accs = SELECT a FROM Txns:t -(REVERSE_PERFORMED_TRANSACTION:e)-> Account:a
+           ACCUM @@accounts += a;
+
+    Custs = SELECT c FROM Accs:a -(REVERSE_HAS_ACCOUNT:e)-> Customer:c
+            ACCUM @@customers += c;
+
+    PRINT dev,
+          @@customers.size() AS customer_count,
+          @@customers AS linked_customers,
+          @@accounts.size() AS account_count,
+          @@accounts AS linked_accounts,
+          @@tx_count AS transaction_count,
+          (@@customers.size() >= 2) AS is_syndicate_ring;
+}

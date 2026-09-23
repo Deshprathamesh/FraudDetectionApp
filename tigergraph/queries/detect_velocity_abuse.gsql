@@ -1,0 +1,24 @@
+USE GRAPH FraudGraph
+
+CREATE OR REPLACE QUERY detect_velocity_abuse(VERTEX<Account> acc) FOR GRAPH FraudGraph {
+    SumAccum<INT> @@tx_count;
+    SumAccum<DOUBLE> @@total_volume;
+    MaxAccum<DOUBLE> @@max_amount;
+    MaxAccum<INT> @@max_c1_counter;
+
+    Start = { acc };
+
+    Txns = SELECT t FROM Start:a -(PERFORMED_TRANSACTION:e)-> Transaction:t
+           ACCUM 
+               @@tx_count += 1,
+               @@total_volume += t.amount,
+               @@max_amount += t.amount,
+               @@max_c1_counter += t.c1;
+
+    PRINT acc,
+          @@tx_count AS transaction_count,
+          @@total_volume AS total_volume,
+          @@max_amount AS max_single_transaction,
+          @@max_c1_counter AS velocity_counter_c1,
+          (@@tx_count >= 3 AND @@total_volume >= 5000.0) AS velocity_abuse_detected;
+}

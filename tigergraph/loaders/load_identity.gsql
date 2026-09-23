@@ -1,0 +1,39 @@
+// ==============================================================================
+// FraudGraph AI - GSQL Loading Job: Identity & Devices
+// Workstream: Person 2 (Graph)
+//
+// Ingests IEEE-CIS identity records into Device and IPAddress vertices
+// ==============================================================================
+
+USE GRAPH FraudGraph
+
+CREATE LOADING JOB load_identity FOR GRAPH FraudGraph {
+    DEFINE FILENAME file_ident;
+
+    LOAD file_ident TO VERTEX Device VALUES(
+        $1,
+        $2,
+        $3,
+        $4,
+        0.50
+    ) USING header="true", separator=",";
+
+    LOAD file_ident TO VERTEX IPAddress VALUES(
+        $5,
+        $5,
+        $6,
+        $7,
+        $8,
+        $9
+    ) USING header="true", separator=",";
+
+    LOAD file_ident TO EDGE USED_DEVICE VALUES(
+        $0,
+        $1
+    ) USING header="true", separator=",";
+
+    LOAD file_ident TO EDGE ASSOCIATED_IP VALUES(
+        $0,
+        $5
+    ) USING header="true", separator=",";
+}

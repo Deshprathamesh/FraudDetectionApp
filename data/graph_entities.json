@@ -1,0 +1,952 @@
+{
+  "customers": [
+    {
+      "id": "C-45821",
+      "name": "Elena Vance",
+      "risk_tier": "HIGH",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-77109",
+      "name": "Marcus Thorne",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-10294",
+      "name": "Amina Rossi",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-99321",
+      "name": "David Chen",
+      "risk_tier": "HIGH",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-50001",
+      "name": "Sarah Connor",
+      "risk_tier": "HIGH",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-50002",
+      "name": "John Doe",
+      "risk_tier": "HIGH",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-50003",
+      "name": "Robert Smith",
+      "risk_tier": "HIGH",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-60001",
+      "name": "Alice Cooper",
+      "risk_tier": "HIGH",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-70001",
+      "name": "Tom Holland",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-80001",
+      "name": "Brian Cox",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900001",
+      "name": "Customer_1",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900002",
+      "name": "Customer_2",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900003",
+      "name": "Customer_3",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900004",
+      "name": "Customer_4",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900005",
+      "name": "Customer_5",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900006",
+      "name": "Customer_6",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900007",
+      "name": "Customer_7",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900008",
+      "name": "Customer_8",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900009",
+      "name": "Customer_9",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900010",
+      "name": "Customer_10",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900011",
+      "name": "Customer_11",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900012",
+      "name": "Customer_12",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900013",
+      "name": "Customer_13",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900014",
+      "name": "Customer_14",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900015",
+      "name": "Customer_15",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900016",
+      "name": "Customer_16",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900017",
+      "name": "Customer_17",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900018",
+      "name": "Customer_18",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900019",
+      "name": "Customer_19",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    },
+    {
+      "id": "C-900020",
+      "name": "Customer_20",
+      "risk_tier": "LOW",
+      "created_at": 1700000000
+    }
+  ],
+  "accounts": [
+    {
+      "id": "ACC-90141",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-22019",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-77402",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-55109",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-50001",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-50002",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-50003",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-60001",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-MULE-01",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-GEO-01",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900001",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900002",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900003",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900004",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900005",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900006",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900007",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900008",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900009",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900010",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900011",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900012",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900013",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900014",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900015",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900016",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900017",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900018",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900019",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    },
+    {
+      "id": "ACC-900020",
+      "account_type": "CHECKING",
+      "balance": 15000.0,
+      "status": "ACTIVE",
+      "opened_at": 1705000000
+    }
+  ],
+  "merchants": [
+    {
+      "id": "MERCH-LUXURY-881",
+      "merchant_name": "Haute Horlogerie Geneva",
+      "category_code": "JEWELRY"
+    },
+    {
+      "id": "MERCH-GROCERY-102",
+      "merchant_name": "Whole Foods Market",
+      "category_code": "GROCERY"
+    },
+    {
+      "id": "MERCH-ELEC-404",
+      "merchant_name": "Best Buy Online",
+      "category_code": "ELECTRONICS"
+    },
+    {
+      "id": "MERCH-CRYPTO-999",
+      "merchant_name": "BitGlobal Exchange",
+      "category_code": "CRYPTO"
+    },
+    {
+      "id": "MERCH-GIFT-555",
+      "merchant_name": "GiftCards Direct",
+      "category_code": "PREPAID"
+    },
+    {
+      "id": "MERCH-DIGITAL-101",
+      "merchant_name": "Steam Games",
+      "category_code": "DIGITAL"
+    },
+    {
+      "id": "MERCH-DIGITAL-102",
+      "merchant_name": "Spotify Subscription",
+      "category_code": "DIGITAL"
+    },
+    {
+      "id": "MERCH-GAS-201",
+      "merchant_name": "Shell Automated Pump",
+      "category_code": "AUTOMOTIVE"
+    },
+    {
+      "id": "MERCH-P2P-001",
+      "merchant_name": "Zelle P2P Transfer",
+      "category_code": "WIRE"
+    },
+    {
+      "id": "MERCH-RETAIL-002",
+      "merchant_name": "Retail Store 2",
+      "category_code": "RETAIL"
+    },
+    {
+      "id": "MERCH-RETAIL-003",
+      "merchant_name": "Retail Store 3",
+      "category_code": "RETAIL"
+    },
+    {
+      "id": "MERCH-RETAIL-004",
+      "merchant_name": "Retail Store 4",
+      "category_code": "RETAIL"
+    },
+    {
+      "id": "MERCH-RETAIL-005",
+      "merchant_name": "Retail Store 5",
+      "category_code": "RETAIL"
+    },
+    {
+      "id": "MERCH-RETAIL-001",
+      "merchant_name": "Retail Store 1",
+      "category_code": "RETAIL"
+    }
+  ],
+  "fraud_patterns": [
+    {
+      "id": "FP-01",
+      "name": "Shared Device Syndicate Ring",
+      "category": "Device & Network Fraud",
+      "severity": 0.85,
+      "description": "Multiple distinct Customer accounts connecting to a single Device hardware fingerprint within 48h."
+    },
+    {
+      "id": "FP-02",
+      "name": "Card Testing & Rapid Velocity Burst",
+      "category": "Automated Bot & Velocity Fraud",
+      "severity": 0.8,
+      "description": "Burst of micro-transactions followed immediately by high-value checkout authorization."
+    },
+    {
+      "id": "FP-03",
+      "name": "Mule Account Daisy-Chain & Velocity Abuse",
+      "category": "AML / Money Laundering",
+      "severity": 0.95,
+      "description": "Rapid succession of high-volume fund funneling through newly provisioned accounts."
+    },
+    {
+      "id": "FP-04",
+      "name": "Geo-Velocity Anomaly & Proxy Churning",
+      "category": "Cyber / Identity Masking",
+      "severity": 0.9,
+      "description": "Consecutive transactions with impossible physical travel velocity or anonymized Tor/VPN IPs."
+    },
+    {
+      "id": "FP-05",
+      "name": "Synthetic Identity Profile Overlap",
+      "category": "Identity Fraud",
+      "severity": 0.75,
+      "description": "Multiple customer entities sharing disposable credentials, phone, or identity fragments."
+    }
+  ],
+  "cases": [
+    {
+      "case_id": "CASE-104829",
+      "transaction_id": "TXN-104829",
+      "customer_id": "C-45821",
+      "status": "INVESTIGATING",
+      "risk_score": 0.88,
+      "confidence": 0.92,
+      "created_at": 1774310500,
+      "summary": "Syndicate device overlap and high-value luxury checkout."
+    },
+    {
+      "case_id": "CASE-405112",
+      "transaction_id": "TXN-405112",
+      "customer_id": "C-99321",
+      "status": "CONFIRMED_FRAUD",
+      "risk_score": 0.94,
+      "confidence": 0.96,
+      "created_at": 1774313500,
+      "summary": "Crypto checkout linked to device ring DEV-9812."
+    },
+    {
+      "case_id": "CASE-600004",
+      "transaction_id": "TXN-600004",
+      "customer_id": "C-60001",
+      "status": "CONFIRMED_FRAUD",
+      "risk_score": 0.91,
+      "confidence": 0.94,
+      "created_at": 1774316250,
+      "summary": "Card testing sequence followed by high value luxury purchase."
+    }
+  ],
+  "edges_has_account": [
+    {
+      "from": "C-45821",
+      "to": "ACC-90141"
+    },
+    {
+      "from": "C-77109",
+      "to": "ACC-22019"
+    },
+    {
+      "from": "C-10294",
+      "to": "ACC-77402"
+    },
+    {
+      "from": "C-99321",
+      "to": "ACC-55109"
+    },
+    {
+      "from": "C-50001",
+      "to": "ACC-50001"
+    },
+    {
+      "from": "C-50002",
+      "to": "ACC-50002"
+    },
+    {
+      "from": "C-50003",
+      "to": "ACC-50003"
+    },
+    {
+      "from": "C-60001",
+      "to": "ACC-60001"
+    },
+    {
+      "from": "C-70001",
+      "to": "ACC-MULE-01"
+    },
+    {
+      "from": "C-80001",
+      "to": "ACC-GEO-01"
+    },
+    {
+      "from": "C-900001",
+      "to": "ACC-900001"
+    },
+    {
+      "from": "C-900002",
+      "to": "ACC-900002"
+    },
+    {
+      "from": "C-900003",
+      "to": "ACC-900003"
+    },
+    {
+      "from": "C-900004",
+      "to": "ACC-900004"
+    },
+    {
+      "from": "C-900005",
+      "to": "ACC-900005"
+    },
+    {
+      "from": "C-900006",
+      "to": "ACC-900006"
+    },
+    {
+      "from": "C-900007",
+      "to": "ACC-900007"
+    },
+    {
+      "from": "C-900008",
+      "to": "ACC-900008"
+    },
+    {
+      "from": "C-900009",
+      "to": "ACC-900009"
+    },
+    {
+      "from": "C-900010",
+      "to": "ACC-900010"
+    },
+    {
+      "from": "C-900011",
+      "to": "ACC-900011"
+    },
+    {
+      "from": "C-900012",
+      "to": "ACC-900012"
+    },
+    {
+      "from": "C-900013",
+      "to": "ACC-900013"
+    },
+    {
+      "from": "C-900014",
+      "to": "ACC-900014"
+    },
+    {
+      "from": "C-900015",
+      "to": "ACC-900015"
+    },
+    {
+      "from": "C-900016",
+      "to": "ACC-900016"
+    },
+    {
+      "from": "C-900017",
+      "to": "ACC-900017"
+    },
+    {
+      "from": "C-900018",
+      "to": "ACC-900018"
+    },
+    {
+      "from": "C-900019",
+      "to": "ACC-900019"
+    },
+    {
+      "from": "C-900020",
+      "to": "ACC-900020"
+    }
+  ],
+  "edges_performed_txn": [
+    {
+      "from": "ACC-90141",
+      "to": "TXN-104829"
+    },
+    {
+      "from": "ACC-22019",
+      "to": "TXN-209144"
+    },
+    {
+      "from": "ACC-77402",
+      "to": "TXN-301855"
+    },
+    {
+      "from": "ACC-55109",
+      "to": "TXN-405112"
+    },
+    {
+      "from": "ACC-50001",
+      "to": "TXN-500001"
+    },
+    {
+      "from": "ACC-50002",
+      "to": "TXN-500002"
+    },
+    {
+      "from": "ACC-50003",
+      "to": "TXN-500003"
+    },
+    {
+      "from": "ACC-60001",
+      "to": "TXN-600001"
+    },
+    {
+      "from": "ACC-60001",
+      "to": "TXN-600002"
+    },
+    {
+      "from": "ACC-60001",
+      "to": "TXN-600003"
+    },
+    {
+      "from": "ACC-60001",
+      "to": "TXN-600004"
+    },
+    {
+      "from": "ACC-MULE-01",
+      "to": "TXN-700001"
+    },
+    {
+      "from": "ACC-MULE-01",
+      "to": "TXN-700002"
+    },
+    {
+      "from": "ACC-MULE-01",
+      "to": "TXN-700003"
+    },
+    {
+      "from": "ACC-GEO-01",
+      "to": "TXN-800001"
+    },
+    {
+      "from": "ACC-GEO-01",
+      "to": "TXN-800002"
+    },
+    {
+      "from": "ACC-900001",
+      "to": "TXN-900001"
+    },
+    {
+      "from": "ACC-900002",
+      "to": "TXN-900002"
+    },
+    {
+      "from": "ACC-900003",
+      "to": "TXN-900003"
+    },
+    {
+      "from": "ACC-900004",
+      "to": "TXN-900004"
+    },
+    {
+      "from": "ACC-900005",
+      "to": "TXN-900005"
+    },
+    {
+      "from": "ACC-900006",
+      "to": "TXN-900006"
+    },
+    {
+      "from": "ACC-900007",
+      "to": "TXN-900007"
+    },
+    {
+      "from": "ACC-900008",
+      "to": "TXN-900008"
+    },
+    {
+      "from": "ACC-900009",
+      "to": "TXN-900009"
+    },
+    {
+      "from": "ACC-900010",
+      "to": "TXN-900010"
+    },
+    {
+      "from": "ACC-900011",
+      "to": "TXN-900011"
+    },
+    {
+      "from": "ACC-900012",
+      "to": "TXN-900012"
+    },
+    {
+      "from": "ACC-900013",
+      "to": "TXN-900013"
+    },
+    {
+      "from": "ACC-900014",
+      "to": "TXN-900014"
+    },
+    {
+      "from": "ACC-900015",
+      "to": "TXN-900015"
+    },
+    {
+      "from": "ACC-900016",
+      "to": "TXN-900016"
+    },
+    {
+      "from": "ACC-900017",
+      "to": "TXN-900017"
+    },
+    {
+      "from": "ACC-900018",
+      "to": "TXN-900018"
+    },
+    {
+      "from": "ACC-900019",
+      "to": "TXN-900019"
+    },
+    {
+      "from": "ACC-900020",
+      "to": "TXN-900020"
+    }
+  ],
+  "edges_targets_merch": [
+    {
+      "from": "TXN-104829",
+      "to": "MERCH-LUXURY-881"
+    },
+    {
+      "from": "TXN-209144",
+      "to": "MERCH-GROCERY-102"
+    },
+    {
+      "from": "TXN-301855",
+      "to": "MERCH-ELEC-404"
+    },
+    {
+      "from": "TXN-405112",
+      "to": "MERCH-CRYPTO-999"
+    },
+    {
+      "from": "TXN-500001",
+      "to": "MERCH-ELEC-404"
+    },
+    {
+      "from": "TXN-500002",
+      "to": "MERCH-GIFT-555"
+    },
+    {
+      "from": "TXN-500003",
+      "to": "MERCH-LUXURY-881"
+    },
+    {
+      "from": "TXN-600001",
+      "to": "MERCH-DIGITAL-101"
+    },
+    {
+      "from": "TXN-600002",
+      "to": "MERCH-DIGITAL-102"
+    },
+    {
+      "from": "TXN-600003",
+      "to": "MERCH-GAS-201"
+    },
+    {
+      "from": "TXN-600004",
+      "to": "MERCH-LUXURY-881"
+    },
+    {
+      "from": "TXN-700001",
+      "to": "MERCH-P2P-001"
+    },
+    {
+      "from": "TXN-700002",
+      "to": "MERCH-P2P-001"
+    },
+    {
+      "from": "TXN-700003",
+      "to": "MERCH-P2P-001"
+    },
+    {
+      "from": "TXN-800001",
+      "to": "MERCH-GROCERY-102"
+    },
+    {
+      "from": "TXN-800002",
+      "to": "MERCH-CRYPTO-999"
+    },
+    {
+      "from": "TXN-900001",
+      "to": "MERCH-RETAIL-002"
+    },
+    {
+      "from": "TXN-900002",
+      "to": "MERCH-RETAIL-003"
+    },
+    {
+      "from": "TXN-900003",
+      "to": "MERCH-RETAIL-004"
+    },
+    {
+      "from": "TXN-900004",
+      "to": "MERCH-RETAIL-005"
+    },
+    {
+      "from": "TXN-900005",
+      "to": "MERCH-RETAIL-001"
+    },
+    {
+      "from": "TXN-900006",
+      "to": "MERCH-RETAIL-002"
+    },
+    {
+      "from": "TXN-900007",
+      "to": "MERCH-RETAIL-003"
+    },
+    {
+      "from": "TXN-900008",
+      "to": "MERCH-RETAIL-004"
+    },
+    {
+      "from": "TXN-900009",
+      "to": "MERCH-RETAIL-005"
+    },
+    {
+      "from": "TXN-900010",
+      "to": "MERCH-RETAIL-001"
+    },
+    {
+      "from": "TXN-900011",
+      "to": "MERCH-RETAIL-002"
+    },
+    {
+      "from": "TXN-900012",
+      "to": "MERCH-RETAIL-003"
+    },
+    {
+      "from": "TXN-900013",
+      "to": "MERCH-RETAIL-004"
+    },
+    {
+      "from": "TXN-900014",
+      "to": "MERCH-RETAIL-005"
+    },
+    {
+      "from": "TXN-900015",
+      "to": "MERCH-RETAIL-001"
+    },
+    {
+      "from": "TXN-900016",
+      "to": "MERCH-RETAIL-002"
+    },
+    {
+      "from": "TXN-900017",
+      "to": "MERCH-RETAIL-003"
+    },
+    {
+      "from": "TXN-900018",
+      "to": "MERCH-RETAIL-004"
+    },
+    {
+      "from": "TXN-900019",
+      "to": "MERCH-RETAIL-005"
+    },
+    {
+      "from": "TXN-900020",
+      "to": "MERCH-RETAIL-001"
+    }
+  ],
+  "edges_case_links": []
+}

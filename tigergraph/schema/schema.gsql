@@ -1,0 +1,192 @@
+// ==============================================================================
+// FraudGraph AI - TigerGraph DDL Schema
+// Workstream: Person 2 (Graph)
+// Schema specification adhering strictly to Component 1 & Integration Specification
+// ==============================================================================
+
+DROP GRAPH FraudGraph
+
+
+// ------------------------------------------------------------------------------
+// Vertex Definitions
+// ------------------------------------------------------------------------------
+
+CREATE VERTEX Customer(
+    PRIMARY_ID id STRING,
+    name STRING,
+    risk_tier STRING,
+    created_at INT
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Account(
+    PRIMARY_ID id STRING,
+    account_type STRING,
+    balance DOUBLE,
+    status STRING,
+    opened_at INT
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Transaction(
+    PRIMARY_ID id STRING,
+    amount DOUBLE,
+    currency STRING,
+    timestamp INT,
+    channel STRING,
+    dist1 DOUBLE,
+    dist2 DOUBLE,
+    c1 INT,
+    c2 INT,
+    c3 INT,
+    c4 INT,
+    c5 INT,
+    c6 INT,
+    c7 INT,
+    c8 INT,
+    c9 INT,
+    c10 INT,
+    c11 INT,
+    c12 INT,
+    c13 INT,
+    c14 INT,
+    risk_score DOUBLE
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Device(
+    PRIMARY_ID id STRING,
+    device_type STRING,
+    os STRING,
+    browser STRING,
+    risk_score DOUBLE
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX IPAddress(
+    PRIMARY_ID id STRING,
+    ip_str STRING,
+    geo_country STRING,
+    geo_city STRING,
+    isp STRING,
+    is_proxy BOOL
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Email(
+    PRIMARY_ID id STRING,
+    domain STRING,
+    is_disposable BOOL
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX CreditCard(
+    PRIMARY_ID id STRING,
+    card1 INT,
+    card2 DOUBLE,
+    card3 INT,
+    card4 STRING,
+    card5 INT,
+    card6 STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Merchant(
+    PRIMARY_ID id STRING,
+    merchant_name STRING,
+    category_code STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX FraudPattern(
+    PRIMARY_ID id STRING,
+    name STRING,
+    category STRING,
+    severity DOUBLE,
+    description STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX FraudCase(
+    PRIMARY_ID case_id STRING,
+    transaction_id STRING,
+    customer_id STRING,
+    status STRING,
+    risk_score DOUBLE,
+    confidence DOUBLE,
+    created_at INT,
+    summary STRING
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX Evidence(
+    PRIMARY_ID id STRING,
+    evidence_type STRING,
+    source STRING,
+    summary STRING,
+    confidence DOUBLE,
+    timestamp INT
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+CREATE VERTEX ActionRecord(
+    PRIMARY_ID id STRING,
+    action_type STRING,
+    status STRING,
+    requested_at INT,
+    executed_at INT,
+    approval BOOL
+) WITH STATS="OUTDEGREE_BY_EDGETYPE";
+
+// ------------------------------------------------------------------------------
+// Edge Definitions
+// ------------------------------------------------------------------------------
+
+CREATE DIRECTED EDGE HAS_ACCOUNT(FROM Customer, TO Account) WITH REVERSE_EDGE="REVERSE_HAS_ACCOUNT";
+CREATE DIRECTED EDGE PERFORMED_TRANSACTION(FROM Account, TO Transaction) WITH REVERSE_EDGE="REVERSE_PERFORMED_TRANSACTION";
+CREATE DIRECTED EDGE TARGETS_MERCHANT(FROM Transaction, TO Merchant) WITH REVERSE_EDGE="REVERSE_TARGETS_MERCHANT";
+CREATE DIRECTED EDGE USED_DEVICE(FROM Transaction, TO Device) WITH REVERSE_EDGE="REVERSE_USED_DEVICE";
+CREATE DIRECTED EDGE ASSOCIATED_IP(FROM Transaction, TO IPAddress) WITH REVERSE_EDGE="REVERSE_ASSOCIATED_IP";
+CREATE DIRECTED EDGE USED_CARD(FROM Transaction, TO CreditCard) WITH REVERSE_EDGE="REVERSE_USED_CARD";
+CREATE DIRECTED EDGE USED_EMAIL(FROM Account, TO Email) WITH REVERSE_EDGE="REVERSE_USED_EMAIL";
+CREATE DIRECTED EDGE INVOLVED_IN_CASE(FROM FraudCase, TO Transaction) WITH REVERSE_EDGE="REVERSE_INVOLVED_IN_CASE";
+CREATE DIRECTED EDGE LINKED_CUSTOMER(FROM FraudCase, TO Customer) WITH REVERSE_EDGE="REVERSE_LINKED_CUSTOMER";
+CREATE DIRECTED EDGE DETECTED_PATTERN(FROM FraudCase, TO FraudPattern) WITH REVERSE_EDGE="REVERSE_DETECTED_PATTERN";
+CREATE DIRECTED EDGE HAS_EVIDENCE(FROM FraudCase, TO Evidence) WITH REVERSE_EDGE="REVERSE_HAS_EVIDENCE";
+CREATE DIRECTED EDGE EXECUTED_ACTION(FROM FraudCase, TO ActionRecord) WITH REVERSE_EDGE="REVERSE_EXECUTED_ACTION";
+
+// Undirected edge with similarity attribute for graph-based case memory matching
+CREATE UNDIRECTED EDGE SIMILAR_TO_CASE(FROM FraudCase, TO FraudCase, similarity_score DOUBLE);
+
+// ------------------------------------------------------------------------------
+// Graph Schema
+// ------------------------------------------------------------------------------
+
+CREATE GRAPH FraudGraph(
+    Customer,
+    Account,
+    Transaction,
+    Device,
+    IPAddress,
+    Email,
+    CreditCard,
+    Merchant,
+    FraudPattern,
+    FraudCase,
+    Evidence,
+    ActionRecord,
+    HAS_ACCOUNT,
+    REVERSE_HAS_ACCOUNT,
+    PERFORMED_TRANSACTION,
+    REVERSE_PERFORMED_TRANSACTION,
+    TARGETS_MERCHANT,
+    REVERSE_TARGETS_MERCHANT,
+    USED_DEVICE,
+    REVERSE_USED_DEVICE,
+    ASSOCIATED_IP,
+    REVERSE_ASSOCIATED_IP,
+    USED_CARD,
+    REVERSE_USED_CARD,
+    USED_EMAIL,
+    REVERSE_USED_EMAIL,
+    INVOLVED_IN_CASE,
+    REVERSE_INVOLVED_IN_CASE,
+    LINKED_CUSTOMER,
+    REVERSE_LINKED_CUSTOMER,
+    DETECTED_PATTERN,
+    REVERSE_DETECTED_PATTERN,
+    HAS_EVIDENCE,
+    REVERSE_HAS_EVIDENCE,
+    EXECUTED_ACTION,
+    REVERSE_EXECUTED_ACTION,
+    SIMILAR_TO_CASE
+);

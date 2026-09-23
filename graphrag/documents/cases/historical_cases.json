@@ -1,0 +1,240 @@
+[
+  {
+    "case_id": "CASE-0842",
+    "transaction_id": "TXN-084201",
+    "customer_id": "C-11902",
+    "status": "RESOLVED",
+    "outcome": "CONFIRMED_FRAUD",
+    "risk_score": 0.89,
+    "confidence": 0.92,
+    "approval_required": false,
+    "fraud_patterns": [
+      {
+        "pattern_id": "FP-01",
+        "name": "Shared Device Syndicate Ring",
+        "description": "Hardware fingerprint D-421 linked to 4 accounts.",
+        "evidence_refs": ["EVID-0842-1"],
+        "confidence": 0.90
+      },
+      {
+        "pattern_id": "FP-02",
+        "name": "Rapid Velocity Burst",
+        "description": "Transaction velocity 4.2x above baseline.",
+        "evidence_refs": ["EVID-0842-2"],
+        "confidence": 0.85
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVID-0842-1",
+        "evidence_type": "SHARED_DEVICE",
+        "type": "SHARED_DEVICE",
+        "source": "tigergraph",
+        "summary": "Shared device hardware hash associated with multiple compromised cards.",
+        "confidence": 0.94,
+        "timestamp": 1712000000,
+        "related_entities": ["D-421", "ACC-11902"]
+      }
+    ],
+    "recommendation": {
+      "action": "BLOCK_TRANSACTION",
+      "reason": "Automated syndicate ring detected using credential stuffing and shared emulator hardware.",
+      "confidence": 0.92,
+      "approval_required": false,
+      "policy_basis": "POL-402: Automated block permitted for confirmed syndicate device rings."
+    },
+    "timeline": [
+      {
+        "event_id": "EVT-0842-1",
+        "timestamp": 1712000000,
+        "type": "TRIGGER",
+        "summary": "High risk score 0.89 triggered investigation",
+        "actor": "system",
+        "related_ids": ["TXN-084201"]
+      },
+      {
+        "event_id": "EVT-0842-2",
+        "timestamp": 1712000500,
+        "type": "ACTION_EXECUTED",
+        "summary": "Transaction blocked and device blacklisted",
+        "actor": "agent",
+        "related_ids": ["D-421"]
+      }
+    ],
+    "investigator_rationale": "Device sharing syndicate operating automated checkout scripts. Accounts had overlapping card tokens and rapidly changed IP addresses. Transaction blocked, card token cancelled, funds recovered.",
+    "key_findings": "Confirmed coordinated bot attack using Android emulator hardware spoofing."
+  },
+  {
+    "case_id": "CASE-0773",
+    "transaction_id": "TXN-077319",
+    "customer_id": "C-20411",
+    "status": "RESOLVED",
+    "outcome": "CONFIRMED_FRAUD",
+    "risk_score": 0.96,
+    "confidence": 0.95,
+    "approval_required": true,
+    "fraud_patterns": [
+      {
+        "pattern_id": "FP-03",
+        "name": "Mule Account Daisy-Chain",
+        "description": "Immediate outbound wire of funds deposited < 48 hours prior.",
+        "evidence_refs": ["EVID-0773-1"],
+        "confidence": 0.96
+      },
+      {
+        "pattern_id": "FP-04",
+        "name": "Geo-Velocity & Proxy Churning",
+        "description": "Originating from foreign Tor exit node with high displacement.",
+        "evidence_refs": ["EVID-0773-2"],
+        "confidence": 0.92
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVID-0773-1",
+        "evidence_type": "MONEY_FLOW",
+        "type": "MONEY_FLOW",
+        "source": "tigergraph",
+        "summary": "Wire transfer of $8,450 to offshore virtual asset provider.",
+        "confidence": 0.98,
+        "timestamp": 1710000000,
+        "related_entities": ["ACC-20411", "M-CRYPTO-9"]
+      }
+    ],
+    "recommendation": {
+      "action": "FREEZE_ACCOUNT",
+      "reason": "Mule account funnelling stolen funds. Immediate balance freeze required.",
+      "confidence": 0.95,
+      "approval_required": true,
+      "policy_basis": "POL-804: Transfers > $5,000 via high-risk conduits require HITL supervisor approval and FinCEN SAR filing."
+    },
+    "timeline": [
+      {
+        "event_id": "EVT-0773-1",
+        "timestamp": 1710000000,
+        "type": "TRIGGER",
+        "summary": "Wire transaction > $5,000 triggered policy rule",
+        "actor": "system",
+        "related_ids": ["TXN-077319"]
+      },
+      {
+        "event_id": "EVT-0773-2",
+        "timestamp": 1710001200,
+        "type": "SUPERVISOR_APPROVAL",
+        "summary": "L2 Supervisor approved account freeze and SAR filing",
+        "actor": "supervisor_l2",
+        "related_ids": ["SAR-2026-0041"]
+      }
+    ],
+    "investigator_rationale": "Mule network off-ramping stolen card balances via overseas crypto platforms. Rapid deposit followed by immediate wire. Account frozen, SAR filed with FinCEN within 24 hours.",
+    "key_findings": "High-value laundering operation using recruited student accounts."
+  },
+  {
+    "case_id": "CASE-0915",
+    "transaction_id": "TXN-091502",
+    "customer_id": "C-77109",
+    "status": "RESOLVED",
+    "outcome": "CLEARED",
+    "risk_score": 0.64,
+    "confidence": 0.88,
+    "approval_required": false,
+    "fraud_patterns": [
+      {
+        "pattern_id": "FP-04",
+        "name": "Geo-Velocity & Proxy Churning",
+        "description": "Apparent geographic anomaly due to corporate VPN exit node.",
+        "evidence_refs": ["EVID-0915-1"],
+        "confidence": 0.60
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVID-0915-1",
+        "evidence_type": "GEO_ANOMALY",
+        "type": "GEO_ANOMALY",
+        "source": "tigergraph",
+        "summary": "IP registered to enterprise cloud gateway in Frankfurt, customer resident in London.",
+        "confidence": 0.65,
+        "timestamp": 1713000000,
+        "related_entities": ["IP-195.201.0.1"]
+      }
+    ],
+    "recommendation": {
+      "action": "REQUEST_STEP_UP_AUTH",
+      "reason": "Moderate uncertainty from unfamiliar IP address; step-up authentication recommended before blocking.",
+      "confidence": 0.70,
+      "approval_required": false,
+      "policy_basis": "POL-201: Pre-decision step-up authentication permitted when uncertainty is elevated."
+    },
+    "timeline": [
+      {
+        "event_id": "EVT-0915-1",
+        "timestamp": 1713000000,
+        "type": "TRIGGER",
+        "summary": "Geo-velocity risk score 0.64 triggered investigation",
+        "actor": "system",
+        "related_ids": ["TXN-091502"]
+      },
+      {
+        "event_id": "EVT-0915-2",
+        "timestamp": 1713000200,
+        "type": "CUSTOMER_CHALLENGE",
+        "summary": "Customer passed biometric step-up authentication",
+        "actor": "customer",
+        "related_ids": ["TXN-091502"]
+      }
+    ],
+    "investigator_rationale": "False positive triggered by executive business roaming and corporate VPN. Verified identity via biometric step-up authentication and confirmed valid airline ticket purchase. Case cleared.",
+    "key_findings": "Legitimate business travel; customer confirmed all charges."
+  },
+  {
+    "case_id": "CASE-0620",
+    "transaction_id": "TXN-062055",
+    "customer_id": "C-99321",
+    "status": "RESOLVED",
+    "outcome": "CONFIRMED_FRAUD",
+    "risk_score": 0.78,
+    "confidence": 0.84,
+    "approval_required": false,
+    "fraud_patterns": [
+      {
+        "pattern_id": "FP-05",
+        "name": "Synthetic Identity Profile Overlap",
+        "description": "Applicant profile shared phone and email with 3 flagged applications.",
+        "evidence_refs": ["EVID-0620-1"],
+        "confidence": 0.82
+      }
+    ],
+    "evidence": [
+      {
+        "evidence_id": "EVID-0620-1",
+        "evidence_type": "CREDENTIAL_OVERLAP",
+        "type": "CREDENTIAL_OVERLAP",
+        "source": "tigergraph",
+        "summary": "Shared VOIP phone number across disparate borrower files.",
+        "confidence": 0.88,
+        "timestamp": 1709000000,
+        "related_entities": ["PHONE-555-0199", "ACC-99321"]
+      }
+    ],
+    "recommendation": {
+      "action": "BLOCK_TRANSACTION",
+      "reason": "Synthetic identity indicator matched across KYC graph database.",
+      "confidence": 0.84,
+      "approval_required": false,
+      "policy_basis": "POL-402: Automated block permitted for confirmed identity fraud."
+    },
+    "timeline": [
+      {
+        "event_id": "EVT-0620-1",
+        "timestamp": 1709000000,
+        "type": "TRIGGER",
+        "summary": "KYC mismatch flagged on new account debit attempt",
+        "actor": "system",
+        "related_ids": ["TXN-062055"]
+      }
+    ],
+    "investigator_rationale": "Automated synthetic identity and card testing attempt. Fabricated SSN coupled with burner VOIP line. Transaction blocked, card cancelled, and entity blacklisted.",
+    "key_findings": "Organized identity synthetic theft syndicate targeting retail credit."
+  }
+]

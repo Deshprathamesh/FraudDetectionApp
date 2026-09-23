@@ -1,0 +1,37 @@
+TransactionID,DeviceInfo,DeviceType,id_30,id_31,id_33,geo_country,geo_city,isp,is_proxy
+TXN-104829,DEV-9812,mobile,iOS 17.4,Safari Mobile,198.51.100.42,US,New York,Verizon Wireless,false
+TXN-209144,DEV-3301,pos_terminal,Linux Embedded,N/A,203.0.113.19,US,Chicago,AT&T Business,false
+TXN-301855,DEV-4412,desktop,macOS 14.3,Chrome,192.0.2.88,US,San Francisco,Comcast Cable,false
+TXN-405112,DEV-9812,mobile,iOS 17.4,Safari Mobile,198.51.100.42,US,New York,Verizon Wireless,true
+TXN-500001,DEV-RING-77,mobile,Android 14,Chrome Mobile,198.51.100.99,US,Miami,M247 Ltd Proxy,true
+TXN-500002,DEV-RING-77,mobile,Android 14,Chrome Mobile,198.51.100.99,US,Miami,M247 Ltd Proxy,true
+TXN-500003,DEV-RING-77,mobile,Android 14,Chrome Mobile,198.51.100.99,US,Miami,M247 Ltd Proxy,true
+TXN-600001,DEV-BOT-01,server,Linux,Python-requests,192.0.2.110,DE,Frankfurt,DigitalOcean Datacenter,true
+TXN-600002,DEV-BOT-01,server,Linux,Python-requests,192.0.2.110,DE,Frankfurt,DigitalOcean Datacenter,true
+TXN-600003,DEV-BOT-01,server,Linux,Python-requests,192.0.2.110,DE,Frankfurt,DigitalOcean Datacenter,true
+TXN-600004,DEV-BOT-01,server,Linux,Python-requests,192.0.2.110,DE,Frankfurt,DigitalOcean Datacenter,true
+TXN-700001,DEV-MULE-99,mobile,Android 13,Chrome,198.51.100.12,US,Atlanta,Spectrum Broadband,false
+TXN-700002,DEV-MULE-99,mobile,Android 13,Chrome,198.51.100.12,US,Atlanta,Spectrum Broadband,false
+TXN-700003,DEV-MULE-99,mobile,Android 13,Chrome,198.51.100.12,US,Atlanta,Spectrum Broadband,false
+TXN-800001,DEV-GEO-01,pos_terminal,Embedded,N/A,192.0.2.201,US,Los Angeles,Charter Communications,false
+TXN-800002,DEV-GEO-02,desktop,Windows 11,Firefox,198.51.100.222,RU,Moscow,Tor Exit Node,true
+TXN-900001,DEV-LEGIT-001,desktop,Windows 11,Chrome,192.168.1.10,US,Austin,Google Fiber,false
+TXN-900002,DEV-LEGIT-002,mobile,iOS 17,Safari,192.168.2.10,US,Austin,Google Fiber,false
+TXN-900003,DEV-LEGIT-003,desktop,Windows 11,Chrome,192.168.3.10,US,Austin,Google Fiber,false
+TXN-900004,DEV-LEGIT-004,mobile,iOS 17,Safari,192.168.4.10,US,Austin,Google Fiber,false
+TXN-900005,DEV-LEGIT-005,desktop,Windows 11,Chrome,192.168.5.10,US,Austin,Google Fiber,false
+TXN-900006,DEV-LEGIT-006,mobile,iOS 17,Safari,192.168.6.10,US,Austin,Google Fiber,false
+TXN-900007,DEV-LEGIT-007,desktop,Windows 11,Chrome,192.168.7.10,US,Austin,Google Fiber,false
+TXN-900008,DEV-LEGIT-008,mobile,iOS 17,Safari,192.168.8.10,US,Austin,Google Fiber,false
+TXN-900009,DEV-LEGIT-009,desktop,Windows 11,Chrome,192.168.9.10,US,Austin,Google Fiber,false
+TXN-900010,DEV-LEGIT-010,mobile,iOS 17,Safari,192.168.10.10,US,Austin,Google Fiber,false
+TXN-900011,DEV-LEGIT-011,desktop,Windows 11,Chrome,192.168.11.10,US,Austin,Google Fiber,false
+TXN-900012,DEV-LEGIT-012,mobile,iOS 17,Safari,192.168.12.10,US,Austin,Google Fiber,false
+TXN-900013,DEV-LEGIT-013,desktop,Windows 11,Chrome,192.168.13.10,US,Austin,Google Fiber,false
+TXN-900014,DEV-LEGIT-014,mobile,iOS 17,Safari,192.168.14.10,US,Austin,Google Fiber,false
+TXN-900015,DEV-LEGIT-015,desktop,Windows 11,Chrome,192.168.15.10,US,Austin,Google Fiber,false
+TXN-900016,DEV-LEGIT-016,mobile,iOS 17,Safari,192.168.16.10,US,Austin,Google Fiber,false
+TXN-900017,DEV-LEGIT-017,desktop,Windows 11,Chrome,192.168.17.10,US,Austin,Google Fiber,false
+TXN-900018,DEV-LEGIT-018,mobile,iOS 17,Safari,192.168.18.10,US,Austin,Google Fiber,false
+TXN-900019,DEV-LEGIT-019,desktop,Windows 11,Chrome,192.168.19.10,US,Austin,Google Fiber,false
+TXN-900020,DEV-LEGIT-020,mobile,iOS 17,Safari,192.168.20.10,US,Austin,Google Fiber,false
