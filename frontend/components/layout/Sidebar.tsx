@@ -23,7 +23,10 @@ export function Sidebar() {
       <nav className="space-y-1">
         {nav.map((item) => {
           const Icon = item.icon;
-          const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
+          const active =
+              item.href === "/"
+                ? pathname === "/"
+                : pathname?.startsWith(item.href) ?? false;
           return <Link key={item.href} href={item.href} className={`group flex items-center gap-3 rounded-xl px-3 py-2.5 text-[13px] font-medium transition ${active ? 'bg-white/10 text-white shadow-inner' : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'}`}><Icon size={17} className={active ? 'text-cyan-300' : 'text-slate-500 group-hover:text-slate-300'} /><span className="flex-1">{item.label}</span>{item.badge && <span className="rounded-md bg-red-400/15 px-1.5 py-0.5 text-[10px] font-bold text-red-300">{item.badge}</span>}{active && !item.badge && <ChevronRight size={14} className="text-slate-500" />}</Link>;
         })}
       </nav>
