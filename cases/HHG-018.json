@@ -1,0 +1,172 @@
+{
+  "case_id": "HHG-018",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.1556,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3491361"
+    ],
+    "first_suspicious_txn_id": "3491361",
+    "connected_card_ids": [
+      "C02354-K19248",
+      "C02354-K2"
+    ],
+    "connected_device_profiles": [],
+    "exposure_usd": 39.08,
+    "evidence": [
+      {
+        "claim": "Transaction 3491361 of amount 39.08 USD executed via in_person on visa at Merchant-W.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3491361",
+          "C02354",
+          "ACC-C02354"
+        ]
+      },
+      {
+        "claim": "Transaction originated from device UNKNOWN_DEVICE and IP IP-1361.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "IP-1361"
+        ]
+      },
+      {
+        "claim": "Upstream ingest system recorded raw detection risk score of 0.4800.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3491361"
+        ]
+      },
+      {
+        "claim": "Customer C02354 (Customer C02354) holds risk tier LOW with 1 accounts and 2 linked cards.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "C02354",
+          "ACC-C02354",
+          "C02354-K19248",
+          "C02354-K2"
+        ]
+      },
+      {
+        "claim": "Historical window retrieved 10 prior transactions with cumulative volume $4,602.32 USD (avg $460.23 USD).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3587840",
+          "3587836",
+          "3587797",
+          "3587776",
+          "3587774",
+          "3587753",
+          "3587696",
+          "3587627",
+          "3587604",
+          "3587585"
+        ]
+      },
+      {
+        "claim": "Multi-hop graph traversal at depth 2 revealed 5 connected entities: 0 accounts, 0 cards, 1 devices, 1 merchants.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "UNKNOWN_DEVICE"
+        ]
+      },
+      {
+        "claim": "Prior case CC-0255 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-0255"
+        ]
+      },
+      {
+        "claim": "Prior case CC-0405 exhibited 90% similarity; historical resolution: CLEARED (historical risk: 0.12).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-0405"
+        ]
+      },
+      {
+        "claim": "Prior case CC-0454 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-0454"
+        ]
+      },
+      {
+        "claim": "Governing policy clause POL-804: Human approval=True, SAR required=True, required confidence threshold=0.85.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "POL-804"
+        ]
+      },
+      {
+        "claim": "Synthesized GraphRAG context generated for LLM reasoning.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3491361"
+        ]
+      },
+      {
+        "claim": "Customer reports unauthorized transaction: Customer C02354 message: 'I never made this $39.08 purchase. Please check my card.' Refers to 3491361.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3491361",
+          "C02354",
+          "C02354-K2"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-0255",
+      "CC-0405",
+      "CC-0454"
+    ],
+    "summary": "Investigation of transaction 3491361 for case HHG-018. The assessed fraud probability was 0.1556. The investigation produced 12 evidence items and the resulting recommendation was ALLOW_TRANSACTION.",
+    "written_to_graph": true,
+    "graph_case_id": "CASE-B5901097"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "ALLOW_TRANSACTION",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "final": [
+      {
+        "action": "ALLOW_TRANSACTION",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "No FILE_REPORT action was included in the final recommendation.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Investigation completed through the benchmark pipeline; the resulting recommendation was resolved by the configured workflow.",
+  "tool_calls": 0,
+  "tokens": 0,
+  "latency_s": 0
+}

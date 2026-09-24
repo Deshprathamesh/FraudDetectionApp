@@ -1,0 +1,207 @@
+{
+  "case_id": "HHG-004",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.5855,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3583227"
+    ],
+    "first_suspicious_txn_id": "3583227",
+    "connected_card_ids": [
+      "C08106-K1",
+      "C08106-K21429"
+    ],
+    "connected_device_profiles": [],
+    "exposure_usd": 128.33,
+    "evidence": [
+      {
+        "claim": "Transaction 3583227 of amount 128.33 USD executed via online on visa at Merchant hotmail.com.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3583227",
+          "C08106",
+          "ACC-C08106"
+        ]
+      },
+      {
+        "claim": "Transaction originated from device desktop and IP 643820.0.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "desktop",
+          "643820.0"
+        ]
+      },
+      {
+        "claim": "Upstream ingest system recorded raw detection risk score of 0.3400.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3583227"
+        ]
+      },
+      {
+        "claim": "Customer C08106 (Customer C08106) holds risk tier LOW with 1 accounts and 2 linked cards.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "C08106",
+          "ACC-C08106",
+          "C08106-K1",
+          "C08106-K21429"
+        ]
+      },
+      {
+        "claim": "Historical window retrieved 10 prior transactions with cumulative volume $467.50 USD (avg $46.75 USD).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3587858",
+          "3585726",
+          "3585446",
+          "3584017",
+          "3583503",
+          "3583499",
+          "3583227",
+          "3580804",
+          "3570412",
+          "3569296"
+        ]
+      },
+      {
+        "claim": "Multi-hop graph traversal at depth 2 revealed 18 connected entities: 13 accounts, 0 cards, 1 devices, 1 merchants.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "ACC-C02354",
+          "ACC-C03042",
+          "ACC-C05876",
+          "ACC-C07987",
+          "ACC-C08106",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C09988",
+          "ACC-C11891",
+          "ACC-C11923",
+          "ACC-C12265",
+          "ACC-C13171",
+          "desktop"
+        ]
+      },
+      {
+        "claim": "Device desktop is shared across 13 linked accounts (risk score: 0.85).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "desktop",
+          "ACC-C02354",
+          "ACC-C03042",
+          "ACC-C05876",
+          "ACC-C07987",
+          "ACC-C08106",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C09988",
+          "ACC-C11891",
+          "ACC-C11923",
+          "ACC-C12265",
+          "ACC-C13171"
+        ]
+      },
+      {
+        "claim": "Prior case CC-0696 exhibited 90% similarity; historical resolution: CLEARED (historical risk: 0.12).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-0696"
+        ]
+      },
+      {
+        "claim": "Prior case CC-1736 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-1736"
+        ]
+      },
+      {
+        "claim": "Prior case CC-2121 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-2121"
+        ]
+      },
+      {
+        "claim": "Governing policy clause POL-804: Human approval=True, SAR required=True, required confidence threshold=0.85.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "POL-804"
+        ]
+      },
+      {
+        "claim": "Synthesized GraphRAG context generated for LLM reasoning.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3583227"
+        ]
+      },
+      {
+        "claim": "Customer reports unauthorized transaction: Customer C08106 message: 'I never made this $128.33 purchase. Please check my card.' Refers to 3583227.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3583227",
+          "C08106",
+          "C08106-K1"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-0696",
+      "CC-1736",
+      "CC-2121"
+    ],
+    "summary": "Investigation of transaction 3583227 for case HHG-004. The assessed fraud probability was 0.5855. The investigation produced 13 evidence items and the resulting recommendation was STEP_UP_AUTH.",
+    "written_to_graph": true,
+    "graph_case_id": "CASE-F44DA9B2"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "STEP_UP_AUTH",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "final": [
+      {
+        "action": "STEP_UP_AUTH",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "No FILE_REPORT action was included in the final recommendation.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Investigation completed through the benchmark pipeline; the resulting recommendation was resolved by the configured workflow.",
+  "tool_calls": 0,
+  "tokens": 0,
+  "latency_s": 0
+}

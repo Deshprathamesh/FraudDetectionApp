@@ -1,0 +1,209 @@
+{
+  "case_id": "HHG-005",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.2728,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3523199"
+    ],
+    "first_suspicious_txn_id": "3523199",
+    "connected_card_ids": [
+      "C02923-K1",
+      "C02923-K22606"
+    ],
+    "connected_device_profiles": [],
+    "exposure_usd": 100.07,
+    "evidence": [
+      {
+        "claim": "Transaction 3523199 of amount 100.07 USD executed via online on visa at Merchant icloud.com.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3523199",
+          "C02923",
+          "ACC-C02923"
+        ]
+      },
+      {
+        "claim": "Transaction originated from device iOS_Device and IP 132055.0.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "iOS_Device",
+          "132055.0"
+        ]
+      },
+      {
+        "claim": "Upstream ingest system recorded raw detection risk score of 0.5400.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3523199"
+        ]
+      },
+      {
+        "claim": "Customer C02923 (Customer C02923) holds risk tier LOW with 1 accounts and 2 linked cards.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "C02923",
+          "ACC-C02923",
+          "C02923-K1",
+          "C02923-K22606"
+        ]
+      },
+      {
+        "claim": "Historical window retrieved 10 prior transactions with cumulative volume $1,214.79 USD (avg $121.48 USD).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3532043",
+          "3523199",
+          "3509459",
+          "3509441",
+          "3505582",
+          "3505579",
+          "3493799",
+          "3486581",
+          "3485766",
+          "3485765"
+        ]
+      },
+      {
+        "claim": "Multi-hop graph traversal at depth 2 revealed 19 connected entities: 14 accounts, 0 cards, 1 devices, 1 merchants.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "ACC-C02354",
+          "ACC-C02923",
+          "ACC-C03042",
+          "ACC-C04570",
+          "ACC-C05876",
+          "ACC-C07297",
+          "ACC-C07671",
+          "ACC-C07987",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C10434",
+          "ACC-C12265",
+          "ACC-C12382",
+          "iOS_Device"
+        ]
+      },
+      {
+        "claim": "Device iOS_Device is shared across 14 linked accounts (risk score: 0.85).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "iOS_Device",
+          "ACC-C02354",
+          "ACC-C02923",
+          "ACC-C03042",
+          "ACC-C04570",
+          "ACC-C05876",
+          "ACC-C07297",
+          "ACC-C07671",
+          "ACC-C07987",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C10434",
+          "ACC-C12265",
+          "ACC-C12382"
+        ]
+      },
+      {
+        "claim": "Prior case CC-2400 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-2400"
+        ]
+      },
+      {
+        "claim": "Prior case CC-2717 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-2717"
+        ]
+      },
+      {
+        "claim": "Prior case CC-2857 exhibited 90% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.92).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-2857"
+        ]
+      },
+      {
+        "claim": "Governing policy clause POL-804: Human approval=True, SAR required=True, required confidence threshold=0.85.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "POL-804"
+        ]
+      },
+      {
+        "claim": "Synthesized GraphRAG context generated for LLM reasoning.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3523199"
+        ]
+      },
+      {
+        "claim": "Trigger context from detection alert: Real-time model scored transaction 3523199 ($100.07, online) at 0.54. Review and decide.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3523199",
+          "C02923",
+          "C02923-K1"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-2400",
+      "CC-2717",
+      "CC-2857"
+    ],
+    "summary": "Investigation of transaction 3523199 for case HHG-005. The assessed fraud probability was 0.2728. The investigation produced 13 evidence items and the resulting recommendation was VERIFY_WITH_CUSTOMER.",
+    "written_to_graph": true,
+    "graph_case_id": "CASE-A846FDFB"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "final": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "No FILE_REPORT action was included in the final recommendation.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Investigation completed through the benchmark pipeline; the resulting recommendation was resolved by the configured workflow.",
+  "tool_calls": 0,
+  "tokens": 0,
+  "latency_s": 0
+}

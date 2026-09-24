@@ -1,0 +1,207 @@
+{
+  "case_id": "HHG-006",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.361,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3476682"
+    ],
+    "first_suspicious_txn_id": "3476682",
+    "connected_card_ids": [
+      "C07297-K1",
+      "C07297-K13729"
+    ],
+    "connected_device_profiles": [],
+    "exposure_usd": 482.12,
+    "evidence": [
+      {
+        "claim": "Transaction 3476682 of amount 482.12 USD executed via online on mastercard at Merchant gmail.com.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3476682",
+          "C07297",
+          "ACC-C07297"
+        ]
+      },
+      {
+        "claim": "Transaction originated from device Trident_7.0 and IP 178446.0.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "Trident_7.0",
+          "178446.0"
+        ]
+      },
+      {
+        "claim": "Upstream ingest system recorded raw detection risk score of 0.2500.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3476682"
+        ]
+      },
+      {
+        "claim": "Customer C07297 (Customer C07297) holds risk tier LOW with 1 accounts and 2 linked cards.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "C07297",
+          "ACC-C07297",
+          "C07297-K1",
+          "C07297-K13729"
+        ]
+      },
+      {
+        "claim": "Historical window retrieved 10 prior transactions with cumulative volume $468.50 USD (avg $46.85 USD).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3588834",
+          "3586692",
+          "3585834",
+          "3579655",
+          "3570470",
+          "3570456",
+          "3570442",
+          "3569953",
+          "3565606",
+          "3565596"
+        ]
+      },
+      {
+        "claim": "Multi-hop graph traversal at depth 2 revealed 20 connected entities: 15 accounts, 0 cards, 1 devices, 1 merchants.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "ACC-C02354",
+          "ACC-C02923",
+          "ACC-C03042",
+          "ACC-C04570",
+          "ACC-C05876",
+          "ACC-C07297",
+          "ACC-C07671",
+          "ACC-C07987",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C11891",
+          "ACC-C11923",
+          "ACC-C12265",
+          "ACC-C13171",
+          "Trident_7.0"
+        ]
+      },
+      {
+        "claim": "Device Trident_7.0 is shared across 15 linked accounts (risk score: 0.85).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "Trident_7.0",
+          "ACC-C02354",
+          "ACC-C02923",
+          "ACC-C03042",
+          "ACC-C04570",
+          "ACC-C05876",
+          "ACC-C07297",
+          "ACC-C07671",
+          "ACC-C07987",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C11891",
+          "ACC-C11923",
+          "ACC-C12265",
+          "ACC-C13171"
+        ]
+      },
+      {
+        "claim": "Prior case CASE-0842 exhibited 91% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.89).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CASE-0842"
+        ]
+      },
+      {
+        "claim": "Prior case CASE-0773 exhibited 88% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.96).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CASE-0773"
+        ]
+      },
+      {
+        "claim": "Prior case CASE-0915 exhibited 72% similarity; historical resolution: CLEARED (historical risk: 0.64).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CASE-0915"
+        ]
+      },
+      {
+        "claim": "Governing policy clause POL-201: Human approval=False, SAR required=False, required confidence threshold=0.50.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "POL-201"
+        ]
+      },
+      {
+        "claim": "Synthesized GraphRAG context generated for LLM reasoning.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3476682"
+        ]
+      },
+      {
+        "claim": "Customer reports unauthorized transaction: Customer C07297 message: 'I never made this $482.12 purchase. Please check my card.' Refers to 3476682.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3476682",
+          "C07297",
+          "C07297-K1"
+        ]
+      }
+    ],
+    "similar_prior_cases": [],
+    "summary": "Investigation of transaction 3476682 for case HHG-006. The assessed fraud probability was 0.361. The investigation produced 13 evidence items and the resulting recommendation was STEP_UP_AUTH.",
+    "written_to_graph": true,
+    "graph_case_id": "CASE-2EDA04A2"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "STEP_UP_AUTH",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "final": [
+      {
+        "action": "STEP_UP_AUTH",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "No FILE_REPORT action was included in the final recommendation.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Investigation completed through the benchmark pipeline; the resulting recommendation was resolved by the configured workflow.",
+  "tool_calls": 0,
+  "tokens": 0,
+  "latency_s": 0
+}

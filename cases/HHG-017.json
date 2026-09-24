@@ -1,0 +1,215 @@
+{
+  "case_id": "HHG-017",
+  "case": {
+    "status": "open",
+    "verdict": "uncertain",
+    "fraud_probability": 0.2277,
+    "pattern": "none",
+    "pattern_description": "",
+    "affected_txn_ids": [
+      "3450629"
+    ],
+    "first_suspicious_txn_id": "3450629",
+    "connected_card_ids": [
+      "C04570-K1",
+      "C04570-K20749"
+    ],
+    "connected_device_profiles": [],
+    "exposure_usd": 100.09,
+    "evidence": [
+      {
+        "claim": "Transaction 3450629 of amount 100.09 USD executed via online on mastercard at Merchant anonymous.com.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3450629",
+          "C04570",
+          "ACC-C04570"
+        ]
+      },
+      {
+        "claim": "Transaction originated from device Windows and IP 26337.0.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "Windows",
+          "26337.0"
+        ]
+      },
+      {
+        "claim": "Upstream ingest system recorded raw detection risk score of 0.5700.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3450629"
+        ]
+      },
+      {
+        "claim": "Customer C04570 (Customer C04570) holds risk tier LOW with 1 accounts and 2 linked cards.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "C04570",
+          "ACC-C04570",
+          "C04570-K1",
+          "C04570-K20749"
+        ]
+      },
+      {
+        "claim": "Historical window retrieved 10 prior transactions with cumulative volume $1,799.90 USD (avg $179.99 USD).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3573022",
+          "3573010",
+          "3495090",
+          "3495066",
+          "3495061",
+          "3495037",
+          "3450629",
+          "3450503",
+          "3450436",
+          "3403833"
+        ]
+      },
+      {
+        "claim": "Multi-hop graph traversal at depth 2 revealed 23 connected entities: 18 accounts, 0 cards, 1 devices, 1 merchants.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "ACC-C02354",
+          "ACC-C02923",
+          "ACC-C03042",
+          "ACC-C04570",
+          "ACC-C05876",
+          "ACC-C07671",
+          "ACC-C07987",
+          "ACC-C08106",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C09988",
+          "ACC-C10434",
+          "ACC-C11891",
+          "ACC-C11923",
+          "ACC-C12265",
+          "ACC-C13171",
+          "ACC-C13487",
+          "Windows"
+        ]
+      },
+      {
+        "claim": "Device Windows is shared across 18 linked accounts (risk score: 0.85).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "Windows",
+          "ACC-C02354",
+          "ACC-C02923",
+          "ACC-C03042",
+          "ACC-C04570",
+          "ACC-C05876",
+          "ACC-C07671",
+          "ACC-C07987",
+          "ACC-C08106",
+          "ACC-C08299",
+          "ACC-C08623",
+          "ACC-C09933",
+          "ACC-C09988",
+          "ACC-C10434",
+          "ACC-C11891",
+          "ACC-C11923",
+          "ACC-C12265",
+          "ACC-C13171",
+          "ACC-C13487"
+        ]
+      },
+      {
+        "claim": "Prior case CC-1383 exhibited 90% similarity; historical resolution: CLEARED (historical risk: 0.12).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CC-1383"
+        ]
+      },
+      {
+        "claim": "Prior case CASE-0842 exhibited 91% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.89).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CASE-0842"
+        ]
+      },
+      {
+        "claim": "Prior case CASE-0773 exhibited 88% similarity; historical resolution: CONFIRMED_FRAUD (historical risk: 0.96).",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "CASE-0773"
+        ]
+      },
+      {
+        "claim": "Governing policy clause POL-601: Human approval=True, SAR required=False, required confidence threshold=0.85.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "POL-601"
+        ]
+      },
+      {
+        "claim": "Synthesized GraphRAG context generated for LLM reasoning.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3450629"
+        ]
+      },
+      {
+        "claim": "Trigger context from detection alert: Real-time model scored transaction 3450629 ($100.09, online) at 0.57. Review and decide.",
+        "source": "graph",
+        "ref": null,
+        "entity_ids": [
+          "3450629",
+          "C04570",
+          "C04570-K1"
+        ]
+      }
+    ],
+    "similar_prior_cases": [
+      "CC-1383"
+    ],
+    "summary": "Investigation of transaction 3450629 for case HHG-017. The assessed fraud probability was 0.2277. The investigation produced 13 evidence items and the resulting recommendation was VERIFY_WITH_CUSTOMER.",
+    "written_to_graph": true,
+    "graph_case_id": "CASE-2229B6A0"
+  },
+  "evidence_requests": [],
+  "next_best_actions": {
+    "initial": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "final": [
+      {
+        "action": "VERIFY_WITH_CUSTOMER",
+        "route": "auto",
+        "reason": "Policy evaluation based on the investigation evidence and applicable policy rules R1-R10."
+      }
+    ],
+    "what_changed": "nothing"
+  },
+  "sar": {
+    "file": false,
+    "reason": "No FILE_REPORT action was included in the final recommendation.",
+    "narrative": "",
+    "subjects": [],
+    "total_amount_usd": 0,
+    "activity_dates": []
+  },
+  "stop_reason": "Investigation completed through the benchmark pipeline; the resulting recommendation was resolved by the configured workflow.",
+  "tool_calls": 0,
+  "tokens": 0,
+  "latency_s": 0
+}
