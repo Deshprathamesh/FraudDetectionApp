@@ -14,6 +14,11 @@
 
 from typing import Dict, Any, List, Optional
 import time
+import os
+import json
+import logging
+
+logger = logging.getLogger("tigergraph.mock_provider")
 
 # ------------------------------------------------------------------------------
 # Standard Error Exception matching Section 9 Error Contract
@@ -322,6 +327,73 @@ MOCK_SIMILAR_CASES: List[Dict[str, Any]] = [
 MOCK_WRITTEN_CASES: Dict[str, Dict[str, Any]] = {}
 
 
+def _load_authentic_benchmark_fixture(fixture_path: Optional[str] = None) -> None:
+    """
+    Hydrates MOCK_TRANSACTIONS, MOCK_CUSTOMERS, MOCK_DEVICE_RINGS, and MOCK_SIMILAR_CASES
+    with authentic benchmark data if Information/benchmark_fixture.json is present.
+    Existing synthetic fixture keys are strictly preserved.
+    """
+    target_path = fixture_path or os.environ.get("FRAUDGRAPH_BENCHMARK_FIXTURE_PATH")
+    if not target_path:
+        candidate_default = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            "Information",
+            "benchmark_fixture.json"
+        )
+        if os.path.exists(candidate_default):
+            target_path = candidate_default
+        else:
+            candidate_cwd = os.path.join(os.getcwd(), "Information", "benchmark_fixture.json")
+            if os.path.exists(candidate_cwd):
+                target_path = candidate_cwd
+
+    if not target_path or not os.path.exists(target_path):
+        logger.debug("Benchmark fixture file not found; running with synthetic graph fixtures only.")
+        return
+
+    try:
+        with open(target_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+
+        loaded_txns = 0
+        for tid, txn in data.get("transactions", {}).items():
+            if tid not in MOCK_TRANSACTIONS:
+                MOCK_TRANSACTIONS[tid] = txn
+                loaded_txns += 1
+
+        loaded_custs = 0
+        for cid, cust in data.get("customers", {}).items():
+            if cid not in MOCK_CUSTOMERS:
+                MOCK_CUSTOMERS[cid] = cust
+                loaded_custs += 1
+
+        loaded_rings = 0
+        for did, ring in data.get("device_rings", {}).items():
+            if did not in MOCK_DEVICE_RINGS:
+                MOCK_DEVICE_RINGS[did] = ring
+                loaded_rings += 1
+
+        loaded_cases = 0
+        existing_case_ids = {c.get("case_id") for c in MOCK_SIMILAR_CASES}
+        for sc in data.get("similar_cases", []):
+            cid = sc.get("case_id")
+            if cid and cid not in existing_case_ids:
+                MOCK_SIMILAR_CASES.append(sc)
+                existing_case_ids.add(cid)
+                loaded_cases += 1
+
+        logger.info(
+            f"Hydrated authentic benchmark graph fixtures: {loaded_txns} transactions, "
+            f"{loaded_custs} customers, {loaded_rings} devices, {loaded_cases} closed cases."
+        )
+    except Exception as e:
+        logger.warning(f"Failed to load authentic benchmark fixture from {target_path}: {e}")
+
+
+# Initialize authentic benchmark data if fixture exists
+_load_authentic_benchmark_fixture()
+
+
 # ------------------------------------------------------------------------------
 # Mock Provider Implementation Class
 # ------------------------------------------------------------------------------
@@ -331,6 +403,11 @@ class TigerGraphMockProvider:
     Deterministic implementation of all 9 TigerGraph Agent Tool contracts.
     Matches Section 7 and Section 5 of the Integration Specification.
     """
+
+    def __init__(self, fixture_path: Optional[str] = None) -> None:
+        """Initialize mock provider, optionally hydrating from custom fixture path."""
+        if fixture_path:
+            _load_authentic_benchmark_fixture(fixture_path)
 
     def get_transaction(self, transaction_id: str) -> Dict[str, Any]:
         """Tool 1: get_transaction(transaction_id) -> transaction details"""
@@ -558,6 +635,19 @@ class TigerGraphMockProvider:
             results.sort(key=lambda c: 0.99 if "FP-03" in c.get("matched_patterns", []) else 0.5, reverse=True)
         elif "104829" in case_context or "device" in case_context.lower():
             results.sort(key=lambda c: 0.99 if "FP-01" in c.get("matched_patterns", []) else 0.5, reverse=True)
+        else:
+            # Check if case_context references a known transaction or customer
+            target_cid = None
+            if case_context in MOCK_TRANSACTIONS:
+                target_cid = MOCK_TRANSACTIONS[case_context].get("customer_id")
+            elif case_context in MOCK_CUSTOMERS:
+                target_cid = case_context
+
+            if target_cid:
+                cust_matches = [c for c in results if c.get("customer_id") == target_cid]
+                if cust_matches:
+                    other_cases = [c for c in results if c.get("customer_id") != target_cid]
+                    results = cust_matches + other_cases
 
         return {"similar_cases": results[:3]}
 

@@ -35,7 +35,7 @@ export const api = {
   requestEvidence: (caseId: string): Promise<EvidenceRequestResponse> => useMock ? mockRequestEvidence(caseId) : request(`/api/cases/${caseId}/evidence-request`, { method: 'POST', body: JSON.stringify({ evidence_type: 'CUSTOMER_TRANSACTION_CONFIRMATION' }) }),
   addEvidence: (caseId: string, payload: EvidenceSubmission): Promise<InvestigationCase> => useMock ? mockAddEvidence(caseId, payload) : request(`/api/cases/${caseId}/evidence`, { method: 'POST', body: JSON.stringify(payload) }),
   getRecommendation: (caseId: string): Promise<Recommendation> => useMock ? mockGetRecommendation(caseId) : request(`/api/cases/${caseId}/recommendation`),
-  takeAction: (caseId: string, payload: ActionRequest): Promise<InvestigationCase> => useMock ? mockTakeAction(caseId, payload) : request(`/api/cases/${caseId}/action`, { method: 'POST', body: JSON.stringify(payload) }),
+  takeAction: (caseId: string, payload: ActionRequest): Promise<InvestigationCase> => useMock ? mockTakeAction(caseId, payload) : request(`/api/cases/${caseId}/action`, { method: 'POST', body: JSON.stringify({ ...payload, approver_id: 'COMP-001' }) }),
   // The shared contract has no list-cases endpoint; real mode stays within the documented case route.
   getDashboardCases: (): Promise<DashboardCase[]> => useMock ? mockGetDashboardCases() : request<InvestigationCase>('/api/cases/CASE-1024').then((item) => [{ case_id: item.case_id, transaction_id: item.transaction_id, customer_id: item.customer_id, amount: item.amount, risk_score: item.risk_score, confidence: item.confidence, status: item.status, updated_at: item.updated_at }]),
 };
